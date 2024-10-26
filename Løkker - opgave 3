@@ -15,5 +15,8 @@ IntDict index; // Declares IntDict
  if (key.equals("z")){ //hvis løkken er någet til bogstavet z kører følgende funktioner
  println("FUNDET      " + "Key:  " + key + "     Value  " + index.get(key) );
  break; //stopper løkken når det første z er fundet
-
-}
+ 
+ }
+ 
+ i++;
+ }
