@@ -1,0 +1,20 @@
+ IntDict index; // Declares IntDict
+ String sentence = "I Afrika lever der mange dyr på savannen, et af dem er zebraen. Zebraen er et flot dyr.";
+ int i = 0;
+ boolean færdig = false;
+ 
+ index = new IntDict(); // Initializes IntDict
+ 
+ 
+ while ( i < sentence.length()) { //Så længe i er mindre end længden af sætningen kører løkken
+ char c = sentence.charAt(i); // Finder symbolet med indexet i
+ String key = String.valueOf(c); // Konvertere symbolet med indexet i til en String, fordi IntDict's keys skal være i string, derfor skal funktionen increment() være i string
+ key=key.toLowerCase(); //gør alle store bogstaver i key til små så vi ikke både skal søge efter z og Z
+ index.increment(key); //tæller hvor mange gange et symbol er i sætningen
+ færdig=true; // indikere at løkken er færdi så man udskriver værdier
+ i++;
+ }
+ 
+ if (færdig==true){
+ println("Antal: " +  index.get("z"));
+ }
