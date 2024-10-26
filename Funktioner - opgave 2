@@ -1,0 +1,32 @@
+class Circle {
+     float x;
+     
+  Circle(float startpoint){
+    x=startpoint;
+}
+ 
+ void tegncirkel(float forskydning){
+forskydning=forskydning+x;
+   fill (255, 0, 0);
+   ellipse(forskydning, height/2, 100, 100);
+ }
+}
+ 
+ 
+ 
+ Circle[]array = new Circle[8];
+ float forskydning=100;
+ 
+ 
+ void setup(){
+   size(800, 800);
+   for (int i=0; i<array.length; i++){
+   array[i] = new Circle((i+1)*forskydning);
+   }
+ }
+   
+   void draw(){
+     for (int i=0; i<array.length; i++){
+     array[i].tegncirkel(-50);
+   }
+   }

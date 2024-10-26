@@ -1,0 +1,22 @@
+IntDict index; // Declares IntDict
+ String sentence = "I Afrika lever der mange dyr på savannen, et af dem er zebraen. Zebraen er et flot dyr.";
+ int i = 0;
+ 
+ 
+ index = new IntDict(); // Initializes IntDict
+ 
+ 
+ while ( i < sentence.length()) { //Så længe i er mindre end længden af sætningen kører løkken
+ char c = sentence.charAt(i); // Finder symbolet med indexet i
+ String key = String.valueOf(c); // Konvertere symbolet med indexet i til en String, fordi IntDict's keys skal være i string, derfor skal funktionen set() være i string
+ key=key.toLowerCase(); //gør alle store bogstaver i key til små så vi ikke både skal søge efter z og Z
+ index.set(key, i+1);  //Sætter hver key's value til dets plads i sætningen¨
+ 
+ if (key.equals("z")){ //hvis løkken er någet til bogstavet z kører følgende funktioner
+ println("FUNDET      " + "Key:  " + key + "     Value  " + index.get(key) );
+ break; //stopper løkken når det første z er fundet
+ 
+ }
+ 
+ i++;
+ }
