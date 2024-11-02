@@ -1,0 +1,63 @@
+// synes det er fint at du har lavet det OOP, men det kan laves med den halve kode proceduralt ;) Vi kommer til at tale om OOP senere.
+
+class Flower {                                // Makes object flower
+  Circle[]array = new Circle[8];              //Declares the object circle
+  float middleX;                              //Makes a variable used to place the flower
+  float middleY;
+
+
+  Flower(float middlex, float middley) {      //The flower constructer 
+    middleX=middlex;                          //Does so the variables written in the constructer can be used in all parts of the class
+    middleY=middley;
+    for (int i=0; i<array.length; i++) {
+      array[i] = new Circle();                //Initializes the circle object i
+    }
+  }
+
+
+  void flowercenter() {                      //Draws the bue square flower center
+    fill(0, 0, 255);
+    rect(middleX-50, middleY-50, 100, 100);  //Draws the square so the variables put into the flower constructer is the center of the square
+  }
+
+
+  void flowerpetals() {                      // Draws the red circles that are the petals
+    pushMatrix();                            //Isolates the translation and rotation so it doesnt effect the entire window
+    translate(middleX, middleY);             //Puts the center of rotation at the middle of the flower
+    for (int i=0; i<array.length; i++) {
+      rotate(radians(45*i));                 //Moves each petal at a diffrent spot around the circle
+      array[i].tegncirkel(0, -70);           //Draws the petal and sets the distance between the middle and the petal (remember the coordinate system has been translated)
+    }
+    popMatrix();
+  }
+}
+
+class Circle {                                //Makes the object circle
+
+  Circle() {
+  }
+
+  void tegncirkel(float x, float y) {        //Make it so the center of the circle is a variable
+    fill (255, 0, 0);
+    ellipse(x, y, 75, 75);
+  }
+}
+
+
+
+Flower[]array = new Flower[4];              //Declares the object flower
+
+
+void setup() {
+  size(800, 800);
+  for (int i=0; i<array.length; i++) {    
+    array[i] = new Flower(250*i, 400);      //Initializes the object flower and puts it center at a row with 250 pixels of distance in between
+  }
+}
+
+void draw() {
+  for (int i=0; i<array.length; i++) {
+    array[i].flowercenter();                //Draws the center
+    array[i].flowerpetals();                //Draws the petals
+  }  
+}

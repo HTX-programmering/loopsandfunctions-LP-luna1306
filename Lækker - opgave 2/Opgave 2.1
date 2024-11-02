@@ -1,0 +1,18 @@
+
+IntDict tællebog; // Declares IntDict
+String sentence = "Dette er en sætning der indeholder mange e'er. Men hvor mange e'er er der?";
+ 
+ 
+ tællebog = new IntDict(); // Initializes IntDict
+ 
+ 
+ for (int i = 0; i < sentence.length(); i++) { //Så længe i er mindre end længden af sætningen kører løkken
+ char c = sentence.charAt(i); // Finder symbolet med indexet i
+ String key = String.valueOf(c); // Konvertere symbolet med indexet i til en String, fordi IntDict's keys skal være i string, derfor skal funktionen increment() være i string
+ tællebog.increment(key); //Hver gang den får et symbol plusser den symbolets værdi med 1 -> den tæller
+ 
+ println("Key:" + key + ", Value:" + tællebog.get(key)); //Den viser os værdierne, men for at finde de rigtige tal skal man vente til at den har talt færdigt
+ 
+}
+
+//jeg ville 'bare' sammenligne variablen c med bogstavet 'e' og hvis det er et 'e' så skal den tælle en variable én op.
