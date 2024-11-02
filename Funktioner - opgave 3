@@ -1,3 +1,5 @@
+// synes det er fint at du har lavet det OOP, men det kan laves med den halve kode proceduralt ;) Vi kommer til at tale om OOP senere.
+
 class Flower {                                // Makes object flower
   Circle[]array = new Circle[8];              //Declares the object circle
   float middleX;                              //Makes a variable used to place the flower
